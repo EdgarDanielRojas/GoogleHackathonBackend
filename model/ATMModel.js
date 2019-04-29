@@ -1,14 +1,11 @@
-
-const {Datastore} = require('@google-cloud/datastore');
-const Storage = require('@google-cloud/storage');
+/* jshint esversion: 6*/
+const { Datastore } = require('@google-cloud/datastore');
+const { Storage } = require('@google-cloud/storage');
 
 const datastore = new Datastore();
 const storage = new Storage();
 
 class ATMModel{
-    constructor(db){
-        this.db = db;
-    }
 
     insertImage(image){
          const bucketName = 'gugle-champ3-bucket';
@@ -20,7 +17,7 @@ class ATMModel{
             .upload(filename);
     }
 
-    async createReport(report,result){
+    async createReport(report,result) {
         var image = 'noimage.jpg';
         if("atmImage" in report.image){
             var fileObject = report.image.atmImage[0];
