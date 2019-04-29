@@ -5,7 +5,10 @@ var multer              = require('multer');
 import MulterGoogleCloudStorage from 'multer-google-storage';
 
 const formUp = multer({
-  storage: new MulterGoogleCloudStorage()
+  storage: Multer.memoryStorage(),
+  limits: {
+    fileSize: 15*1024*1024
+  }
 });
 
 /* GET home page. */
